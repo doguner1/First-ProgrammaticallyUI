@@ -12,6 +12,7 @@
 		4B05FB4D2C63D767007233A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B05FB4C2C63D767007233A6 /* Assets.xcassets */; };
 		4B05FB582C63D969007233A6 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B05FB572C63D969007233A6 /* HomepageVC.swift */; };
 		4B6EABAC2C663D550090E5D1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6EABAB2C663D550090E5D1 /* CustomTextField.swift */; };
+		4B6EABAF2C6654E10090E5D1 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6EABAE2C6654E10090E5D1 /* UIView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4B05FB512C63D767007233A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B05FB572C63D969007233A6 /* HomepageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageVC.swift; sourceTree = "<group>"; };
 		4B6EABAB2C663D550090E5D1 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4B6EABAE2C6654E10090E5D1 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		4B05FB422C63D766007233A6 /* First-ProgrammaticallyUI */ = {
 			isa = PBXGroup;
 			children = (
+				4B6EABAD2C6654D10090E5D1 /* Extensions */,
 				4B6EABA92C663D1D0090E5D1 /* CustomViews */,
 				4B05FB432C63D766007233A6 /* AppDelegate.swift */,
 				4B05FB452C63D766007233A6 /* SceneDelegate.swift */,
@@ -78,6 +81,14 @@
 				4B6EABAB2C663D550090E5D1 /* CustomTextField.swift */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		4B6EABAD2C6654D10090E5D1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4B6EABAE2C6654E10090E5D1 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			files = (
 				4B6EABAC2C663D550090E5D1 /* CustomTextField.swift in Sources */,
 				4B05FB442C63D766007233A6 /* AppDelegate.swift in Sources */,
+				4B6EABAF2C6654E10090E5D1 /* UIView+Ext.swift in Sources */,
 				4B05FB582C63D969007233A6 /* HomepageVC.swift in Sources */,
 				4B05FB462C63D766007233A6 /* SceneDelegate.swift in Sources */,
 			);

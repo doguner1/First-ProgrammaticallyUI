@@ -25,7 +25,8 @@ class HomepageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpId()
-        configureStackView()
+//        configureStackView()
+        
     }
     
     lazy var homepageStackView: UIStackView = { // ==> Hepsine tek tek değer girip aralarına 15 birim bırakmak yerine temiz kod yazdık.
@@ -36,15 +37,16 @@ class HomepageVC: UIViewController {
         return stackView
     }()
     
-    func configureStackView(){
-        view.addSubview(homepageStackView)
-        homepageStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            homepageStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            homepageStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            homepageStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
-        ])
-    }
+//    func configureStackView(){
+//        view.addSubview(homepageStackView)
+//        homepageStackView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            homepageStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+//            homepageStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+//            homepageStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+//        ])
+//        
+//    }
     
     //MARK: - Helpers
     func setUpId(){
@@ -52,45 +54,60 @@ class HomepageVC: UIViewController {
 //        configureUserNameTextField()
 //        configurePassTextField()
 //        configureLoginButton()
+//        configureStackView()
+        configureWithExtension()
     }
     
-//    func configureUserNameTextField(){
-//
-//        
+    func configureWithExtension(){
 //        view.addSubview(userNameTextField)
-//        userNameTextField.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            userNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-//            /// -> üst alanı ayalardık. cihazın güvenli üst alanında 15 birim aşağı
-//            userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-//            /// -> metnin başladığı yönünü ayarladık. cihazın sol alanından 15 birim sağa
-//            userNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-//            /// -> metnin bitiş yönünü ayarladık. cihazın sağ alanından 15 birim sola
-//            userNameTextField.heightAnchor.constraint(equalToConstant: 30)
-//            /// -> yüksekliğini 30 birim ayarladık
-//        ])
-//    }
-//    
-//    func configurePassTextField(){
 //        view.addSubview(passwordTextField)
-//        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            passwordTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 15),
-//            /// -> userNameTextField alanından 15 birim aşağısı demek
-//            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-//            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-//            passwordTextField.heightAnchor.constraint(equalToConstant: 30)
-//        ])
-//    }
-//    
-//    func configureLoginButton(){
 //        view.addSubview(loginButton)
-//        loginButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15),
-//            /// -> userNameTextField alanından 15 birim aşağısı demek
-//            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-//            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
-//        ])
-//    }
+        view.addSubsviewsFromExt(userNameTextField,passwordTextField,loginButton)
+        let standartPadding: CGFloat = 30
+        userNameTextField.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor,right: view.rightAnchor, paddingTop: standartPadding,paddingLeft: standartPadding,paddingRight: standartPadding, height: standartPadding)
+        
+        passwordTextField.anchor(top: userNameTextField.topAnchor, left: view.leftAnchor,right: view.rightAnchor, paddingTop: standartPadding,paddingLeft: standartPadding,paddingRight: standartPadding, height: standartPadding)
+        
+        loginButton.anchor(top: passwordTextField.topAnchor, left: view.leftAnchor,right: view.rightAnchor, paddingTop: standartPadding,paddingLeft: standartPadding,paddingRight: standartPadding)
+    }
+    
+    func configureUserNameTextField(){
+
+        
+        view.addSubview(userNameTextField)
+        userNameTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            userNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            /// -> üst alanı ayalardık. cihazın güvenli üst alanında 15 birim aşağı
+            userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            /// -> metnin başladığı yönünü ayarladık. cihazın sol alanından 15 birim sağa
+            userNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            /// -> metnin bitiş yönünü ayarladık. cihazın sağ alanından 15 birim sola
+            userNameTextField.heightAnchor.constraint(equalToConstant: 30)
+            /// -> yüksekliğini 30 birim ayarladık
+        ])
+    }
+    
+    func configurePassTextField(){
+        view.addSubview(passwordTextField)
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            passwordTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 15),
+            /// -> userNameTextField alanından 15 birim aşağısı demek
+            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    func configureLoginButton(){
+        view.addSubview(loginButton)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15),
+            /// -> userNameTextField alanından 15 birim aşağısı demek
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+        ])
+    }
 }
